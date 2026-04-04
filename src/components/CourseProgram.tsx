@@ -2,186 +2,236 @@ import { f } from "@/lib/fluid";
 
 const modules = [
   {
-    number: "01",
-    title: "Что такое тестирование",
-    topics: [
-      "Роль тестировщика в команде",
-      "Виды тестирования",
-      "Жизненный цикл бага",
+    title: "О профессии «Инженер по тестированию»",
+    items: [
+      "Знакомство с курсом и спикером",
+      "Кто такой тестировщик и какие задачи он решает",
     ],
-    duration: "60 мин",
+    duration: "60\nминут",
   },
   {
-    number: "02",
-    title: "Практика: тестируем приложение",
-    topics: [
-      "Тест-кейсы и чек-листы",
-      "Баг-репорты",
-      "Тестирование реального приложения",
+    title: "Первые шаги в тестировании",
+    items: [
+      "Разберём, с чего начать тестирование",
+      "и найдём первые ошибки в работе сайта",
     ],
-    duration: "40 мин",
+    joinItems: true,
+    duration: "40\nминут",
   },
   {
-    number: "03",
-    title: "Профессия и рынок труда",
-    topics: [
-      "Зарплаты и карьерный рост",
-      "Что ищут работодатели",
-      "Как составить резюме",
-    ],
-    duration: "60 мин",
+    title: "Практическое задание с проверкой от ментора",
+    items: ["Получишь обратную связь от опытного тестировщика"],
+    duration: "60\nминут",
   },
   {
-    number: "04",
-    title: "Куда двигаться дальше",
-    topics: [
-      "Автоматизация тестирования",
-      "Инструменты QA-инженера",
-      "План развития",
+    title: "Популярные вопросы о тестировании",
+    items: [
+      "Сложно ли найти работу без опыта?",
+      "Какой максимальный возраст входа в айти?",
+      "Как нейросети помогают тестировщикам?",
     ],
-    duration: "30 мин",
+    duration: "30\nминут",
   },
 ];
 
-const bonuses = [
-  {
-    title: "Бонус: Консультация",
-    description:
-      "Получи персональную обратную связь от практикующего QA-инженера по результатам курса",
-  },
-  {
-    title: "Бонус: Гайд по вакансиям",
-    description:
-      "Подборка актуальных вакансий для начинающих тестировщиков с разбором требований",
-  },
-];
+function BonusIcon() {
+  return (
+    <div
+      className="flex items-center justify-center overflow-hidden shrink-0"
+      style={{
+        width: f(48),
+        height: f(48),
+        borderRadius: f(20),
+        padding: f(12),
+        backgroundColor: "white",
+      }}
+    >
+      <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+        <path d="M12 4v6m0 0v6m0-6h6m-6 0H6" stroke="#f73" strokeWidth="1.5" strokeLinecap="round" />
+        <rect x="4" y="10" width="16" height="10" rx="2" stroke="#f73" strokeWidth="1.5" />
+        <path d="M12 10V4" stroke="#f73" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    </div>
+  );
+}
 
 export function CourseProgram() {
   return (
     <section
-      className="flex flex-col items-center"
-      style={{ padding: `${f(64)} ${f(20)}` }}
+      className="flex flex-col items-start"
+      style={{ padding: `${f(64)} 0` }}
     >
-      {/* Section heading */}
       <div
-        className="flex flex-col items-center"
-        style={{ gap: f(16), marginBottom: f(50) }}
+        className="flex items-start"
+        style={{ gap: f(16), padding: `0 ${f(20)}`, width: f(1200) }}
       >
-        <h2
-          className="font-sans font-normal text-dark text-center"
-          style={{ fontSize: f(40), lineHeight: "1.0" }}
-        >
-          Программа курса
-        </h2>
-        <p
-          className="font-accent text-accent-end"
-          style={{
-            fontSize: f(75),
-            lineHeight: "0.8",
-            letterSpacing: "-0.03em",
-          }}
-        >
-          4 часа практики
-        </p>
-      </div>
-
-      {/* Content: modules + bonuses */}
-      <div
-        className="flex w-full"
-        style={{ gap: f(16), maxWidth: f(1160) }}
-      >
-        {/* Left: Module list */}
-        <div className="flex flex-col flex-1" style={{ gap: f(8) }}>
-          {modules.map((mod) => (
-            <div
-              key={mod.number}
-              className="flex items-center"
+        {/* Left column: heading */}
+        <div className="flex flex-col flex-1" style={{ minWidth: 0 }}>
+          <div
+            className="font-sans font-normal"
+            style={{
+              fontSize: f(40),
+              lineHeight: "1",
+              color: "#1f1f1f",
+            }}
+          >
+            За 4 часа узнаешь о профессии
+            <br />
+            и выполнишь
+          </div>
+          <div style={{ height: f(58) }}>
+            <span
+              className="font-accent"
               style={{
-                backgroundColor: "#f5f5f8",
-                borderRadius: f(32),
-                padding: f(24),
-                gap: f(24),
+                fontSize: f(75),
+                lineHeight: "0.91",
+                letterSpacing: "-0.03em",
+                color: "#f73",
               }}
             >
-              {/* Duration badge */}
-              <div
-                className="flex items-center justify-center shrink-0 gradient-orange inner-shadow text-white font-sans font-medium"
-                style={{
-                  width: f(70),
-                  height: f(70),
-                  borderRadius: f(20),
-                  fontSize: f(12),
-                  lineHeight: "1.2",
-                }}
-              >
-                {mod.duration}
-              </div>
-
-              {/* Module content */}
-              <div className="flex flex-col flex-1" style={{ gap: f(8) }}>
-                <div className="flex items-center" style={{ gap: f(8) }}>
-                  <span
-                    className="font-sans font-medium text-gray"
-                    style={{ fontSize: f(12), lineHeight: "1.2" }}
-                  >
-                    Модуль {mod.number}
-                  </span>
-                </div>
-                <div
-                  className="font-sans font-medium text-dark"
-                  style={{ fontSize: f(13), lineHeight: "1.2" }}
-                >
-                  {mod.title}
-                </div>
-                <div className="flex flex-wrap" style={{ gap: f(6) }}>
-                  {mod.topics.map((topic) => (
-                    <span
-                      key={topic}
-                      className="font-sans font-normal text-gray"
-                      style={{
-                        fontSize: f(10),
-                        lineHeight: "1.4",
-                        backgroundColor: "rgba(0,0,0,0.04)",
-                        borderRadius: f(100),
-                        padding: `${f(4)} ${f(10)}`,
-                      }}
-                    >
-                      {topic}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+              первую задачу
+            </span>
+          </div>
         </div>
 
-        {/* Right: Bonus cards */}
-        <div className="flex flex-col flex-1" style={{ gap: f(8) }}>
-          {bonuses.map((bonus) => (
+        {/* Right column: modules + bonuses */}
+        <div className="flex flex-col flex-1" style={{ gap: f(24), minWidth: 0 }}>
+          {/* Module list */}
+          <div className="flex flex-col" style={{ gap: f(8) }}>
+            {modules.map((mod, i) => (
+              <div
+                key={i}
+                className="flex items-center overflow-hidden"
+                style={{
+                  backgroundColor: "#f5f5f8",
+                  borderRadius: f(32),
+                  padding: f(24),
+                  gap: f(24),
+                }}
+              >
+                {/* Content */}
+                <div className="flex flex-col flex-1" style={{ gap: f(8), minWidth: 0 }}>
+                  <p
+                    className="font-sans font-medium"
+                    style={{
+                      fontSize: f(13),
+                      lineHeight: "1.2",
+                      color: "#1f1f1f",
+                    }}
+                  >
+                    {mod.title}
+                  </p>
+                  <div
+                    className="flex flex-col font-sans font-normal"
+                    style={{
+                      gap: f(4),
+                      fontSize: f(12),
+                      lineHeight: "1.4",
+                      color: "#888c92",
+                    }}
+                  >
+                    {mod.joinItems ? (
+                      <p>{mod.items.join("\n")}</p>
+                    ) : (
+                      mod.items.map((item, j) => <p key={j}>{item}</p>)
+                    )}
+                  </div>
+                </div>
+                {/* Duration badge — white bg */}
+                <div
+                  className="flex items-center justify-center shrink-0 overflow-hidden"
+                  style={{
+                    width: f(70),
+                    height: f(70),
+                    borderRadius: f(20),
+                    backgroundColor: "white",
+                    padding: `${f(8)} ${f(12)}`,
+                  }}
+                >
+                  <p
+                    className="font-sans font-medium text-center whitespace-pre-line"
+                    style={{
+                      fontSize: f(13),
+                      lineHeight: "1.2",
+                      color: "#1f1f1f",
+                    }}
+                  >
+                    {mod.duration}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Divider: "бонус после прохождения" */}
+          <div className="flex items-center w-full" style={{ gap: f(10) }}>
             <div
-              key={bonus.title}
-              className="flex flex-col flex-1"
+              className="flex-1"
+              style={{ height: 0, borderTop: "1px dashed #888c92" }}
+            />
+            <span
+              className="font-sans font-normal whitespace-nowrap"
+              style={{ fontSize: f(12), lineHeight: "1", color: "#888c92" }}
+            >
+              бонус после прохождения
+            </span>
+            <div
+              className="flex-1"
+              style={{ height: 0, borderTop: "1px dashed #888c92" }}
+            />
+          </div>
+
+          {/* Bonus cards */}
+          <div className="flex" style={{ gap: f(12) }}>
+            <div
+              className="flex flex-1 items-center overflow-hidden"
               style={{
-                backgroundColor: "#f5f5f8",
+                backgroundColor: "rgba(255, 119, 51, 0.1)",
                 borderRadius: f(32),
                 padding: f(24),
-                gap: f(12),
+                gap: f(16),
               }}
             >
-              <div
-                className="font-sans font-medium text-dark"
-                style={{ fontSize: f(13), lineHeight: "1.2" }}
+              <BonusIcon />
+              <p
+                className="font-sans font-medium flex-1"
+                style={{
+                  fontSize: f(13),
+                  lineHeight: "1.2",
+                  color: "#f73",
+                }}
               >
-                {bonus.title}
-              </div>
-              <div
-                className="font-sans font-normal text-gray"
-                style={{ fontSize: f(12), lineHeight: "1.4" }}
-              >
-                {bonus.description}
-              </div>
+                Индивидуальная
+                <br />
+                карьерная консультация
+              </p>
             </div>
-          ))}
+            <div
+              className="flex flex-1 items-center overflow-hidden"
+              style={{
+                backgroundColor: "rgba(255, 119, 51, 0.1)",
+                borderRadius: f(32),
+                padding: f(24),
+                gap: f(16),
+              }}
+            >
+              <BonusIcon />
+              <p
+                className="font-sans font-medium flex-1"
+                style={{
+                  fontSize: f(13),
+                  lineHeight: "1.2",
+                  color: "#f73",
+                }}
+              >
+                30+ площадок
+                <br />
+                с вакансиями
+                <br />
+                для тестировщиков
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,78 +1,117 @@
 import { f } from "@/lib/fluid";
 
 const features = [
-  { icon: "🎓", text: "4 часа практики" },
-  { icon: "💰", text: "Полностью бесплатно" },
-  { icon: "📋", text: "Реальное задание" },
-  { icon: "💬", text: "Обратная связь" },
+  { text: "можно пройти\nс телефона" },
+  { text: "скидка после\nпрохождения" },
+  { text: "займёт\n~4 часа" },
+  { text: "не нужно\nпривязывать карту" },
 ];
+
+function FeatureIcon() {
+  return (
+    <div
+      className="flex items-center justify-center overflow-hidden shrink-0"
+      style={{ width: f(32), height: f(32) }}
+    >
+      <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+        <path d="M8 8h8v8H8z" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M12 4v4M12 16v4M4 12h4M16 12h4" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    </div>
+  );
+}
 
 export function CtaFooter() {
   return (
-    <section className="flex flex-col" style={{ paddingTop: f(64) }}>
+    <section
+      className="flex flex-col"
+      style={{ paddingTop: f(64), paddingLeft: f(20), paddingRight: f(20), gap: f(24) }}
+    >
       {/* CTA Block */}
       <div
-        className="gradient-orange relative overflow-hidden"
+        className="relative flex flex-col items-center justify-center overflow-hidden"
         style={{
-          borderRadius: f(32),
-          padding: `${f(64)} ${f(20)}`,
-          margin: `0 ${f(20)}`,
-          boxShadow: "inset 0 2px 40px rgba(255, 255, 255, 0.15)",
+          height: f(528),
+          borderRadius: f(100),
+          padding: f(64),
         }}
       >
+        {/* Radial gradient background */}
         <div
-          className="flex flex-col items-center text-center"
+          className="absolute inset-0"
+          style={{
+            borderRadius: f(100),
+            background:
+              "radial-gradient(ellipse at center, #ff4d00 0%, #ff5c0e 28.2%, #ff6c1d 56.4%, #ff7733 100%)",
+          }}
+        />
+        {/* Inner shadow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            borderRadius: "inherit",
+            boxShadow: "inset 0px 4px 40px 0px white",
+          }}
+        />
+
+        {/* Content */}
+        <div
+          className="relative flex flex-col flex-1 items-center w-full"
           style={{ gap: f(48) }}
         >
-          {/* CTA heading */}
-          <div className="flex flex-col items-center" style={{ gap: f(16) }}>
+          {/* Heading area */}
+          <div
+            className="flex flex-col flex-1 items-center justify-center"
+            style={{ gap: f(32), padding: `0 ${f(180)}` }}
+          >
             <h2
-              className="font-sans font-normal text-white"
-              style={{ fontSize: f(40), lineHeight: "1.0" }}
+              className="font-sans font-normal text-white text-center"
+              style={{ fontSize: f(40), lineHeight: "1" }}
             >
-              Начни свой путь в тестировании
+              Попробуй и узнай,
+              <br />
+              подойдёт ли тебе профессия
+              <br />
+              и наш подход к обучению
             </h2>
-            <p
-              className="font-sans font-normal"
+            {/* Heart decoration — positioned right */}
+            <div
+              className="absolute"
               style={{
-                fontSize: f(13),
-                lineHeight: "1.4",
-                color: "rgba(255, 255, 255, 0.8)",
+                right: f(64 + 180 - 50),
+                top: f(172),
+                width: f(50),
+                height: f(50),
+                fontSize: f(40),
               }}
             >
-              Бесплатный курс — это первый шаг к новой карьере в IT
-            </p>
+              ❤️
+            </div>
           </div>
 
           {/* Feature cards row */}
-          <div className="flex" style={{ gap: f(8) }}>
+          <div
+            className="flex items-center justify-center w-full"
+            style={{ gap: f(8), padding: `0 ${f(64)}` }}
+          >
             {features.map((feature) => (
               <div
                 key={feature.text}
-                className="flex flex-col items-center flex-1"
+                className="flex flex-1 items-center"
                 style={{
                   padding: f(24),
                   borderRadius: f(32),
                   backgroundColor: "rgba(255, 255, 255, 0.08)",
-                  gap: f(8),
+                  gap: f(16),
                 }}
               >
-                <div
-                  className="flex items-center justify-center"
-                  style={{
-                    width: f(32),
-                    height: f(32),
-                    fontSize: f(20),
-                  }}
-                >
-                  {feature.icon}
-                </div>
-                <span
-                  className="font-sans font-medium text-white"
-                  style={{ fontSize: f(12), lineHeight: "1.2" }}
+                <FeatureIcon />
+                <p
+                  className="font-sans font-medium text-white whitespace-pre-line"
+                  style={{ fontSize: f(13), lineHeight: "1.2" }}
                 >
                   {feature.text}
-                </span>
+                </p>
               </div>
             ))}
           </div>
@@ -80,23 +119,36 @@ export function CtaFooter() {
       </div>
 
       {/* Footer */}
-      <footer
+      <div
         className="flex items-center justify-between"
-        style={{ padding: `${f(32)} ${f(20)}` }}
+        style={{
+          paddingBottom: f(24),
+          paddingLeft: f(32),
+          paddingRight: f(32),
+        }}
       >
         <span
-          className="font-sans font-normal text-gray"
-          style={{ fontSize: f(10), lineHeight: "1.4" }}
+          className="font-sans font-normal whitespace-nowrap"
+          style={{ fontSize: f(10), lineHeight: "1.4", color: "#888c92" }}
         >
           Политика конфиденциальности
         </span>
-        <span
-          className="font-sans font-normal text-gray"
-          style={{ fontSize: f(10), lineHeight: "1.4" }}
-        >
-          Сделано командой QA Studio
-        </span>
-      </footer>
+        <div className="flex items-center" style={{ gap: f(4) }}>
+          <span
+            className="font-sans font-normal whitespace-nowrap"
+            style={{ fontSize: f(10), lineHeight: "1.4", color: "#888c92" }}
+          >
+            Сделано с
+          </span>
+          <span style={{ fontSize: f(12) }}>🧡</span>
+          <span
+            className="font-sans font-normal whitespace-nowrap"
+            style={{ fontSize: f(10), lineHeight: "1.4", color: "#888c92" }}
+          >
+            командой QA Studio
+          </span>
+        </div>
+      </div>
     </section>
   );
 }
