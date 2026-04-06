@@ -43,20 +43,31 @@ export function Hero() {
         <div
           className="relative flex items-center justify-between w-full shrink-0"
         >
-          {/* Left: course tag */}
-          <div style={{ width: f(293) }}>
-            <BluePill>Курс «Инженер по тестированию»</BluePill>
-          </div>
+          {/* Left: course tag — hug content */}
+          <BluePill>Курс «Инженер по тестированию»</BluePill>
 
-          {/* Center: Logo */}
+          {/* Center: Logo — icon + text */}
           <div
-            className="flex items-center justify-center"
-            style={{ gap: f(6) }}
+            className="absolute left-1/2 -translate-x-1/2 flex items-center"
+            style={{ gap: f(6), height: f(28) }}
           >
-            <span style={{ fontSize: f(16), color: "white" }}>♥</span>
+            {/* Logo icon placeholder */}
+            <svg
+              viewBox="0 0 28 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ width: f(28), height: f(28) }}
+            >
+              <rect width="28" height="28" rx="6" fill="white" />
+              <path
+                d="M8.5 10C8.5 9.17 9.17 8.5 10 8.5h3.5v3.5H10A1.5 1.5 0 018.5 10zM14.5 8.5H18a1.5 1.5 0 010 3h-3.5V8.5zM8.5 18c0-.83.67-1.5 1.5-1.5h3.5V20H10a1.5 1.5 0 01-1.5-1.5zM14.5 16.5H18a1.5 1.5 0 010 3h-3.5v-3.5z"
+                fill="#017beb"
+              />
+              <path d="M10 13h8v2h-8z" fill="#017beb" />
+            </svg>
             <span
-              className="font-sans font-medium text-white"
-              style={{ fontSize: f(18), lineHeight: "1.2" }}
+              className="font-sans font-medium text-white whitespace-nowrap"
+              style={{ fontSize: f(16), lineHeight: "1" }}
             >
               QA Studio
             </span>
