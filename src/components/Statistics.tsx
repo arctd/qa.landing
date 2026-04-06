@@ -342,55 +342,17 @@ function NoExperienceCard() {
           не требуется техническое образование или опыт в IT
         </p>
       </div>
-      {/* Right decoration placeholder */}
+      {/* Right image from Figma */}
       <div
-        className="relative shrink-0"
+        className="shrink-0 relative"
         style={{ width: f(240), height: f(168) }}
       >
-        {/* Decorative card illustration */}
-        <div
-          className="absolute overflow-hidden"
-          style={{
-            left: f(17),
-            top: f(29),
-            width: f(124),
-            height: f(143),
-            borderRadius: f(17),
-            background: "linear-gradient(180deg, white 69%, #f6f7f9 97%)",
-          }}
-        >
-          {/* Skeleton lines */}
-          <div
-            className="absolute flex flex-col items-start"
-            style={{ left: f(13), top: f(70), gap: f(4), width: f(97) }}
-          >
-            <div style={{ height: f(7), width: f(35), borderRadius: f(9), backgroundColor: "#f5f5f8" }} />
-            <div style={{ height: f(7), width: f(85), borderRadius: f(9), backgroundColor: "#f5f5f8" }} />
-            <div style={{ height: f(7), width: f(71), borderRadius: f(9), backgroundColor: "#f5f5f8" }} />
-          </div>
-          {/* Junior QA badge */}
-          <div
-            className="absolute flex items-end"
-            style={{ left: f(13), top: f(15), gap: f(6) }}
-          >
-            <div
-              style={{
-                width: f(35),
-                height: f(33),
-                borderRadius: f(6),
-                background: "radial-gradient(ellipse at center bottom, #ebecf0, #c2c1c1)",
-              }}
-            />
-            <span
-              className="font-sans font-medium"
-              style={{ fontSize: f(12), lineHeight: "1.2", color: "#f73" }}
-            >
-              Junior
-              <br />
-              QA
-            </span>
-          </div>
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          alt=""
+          src="https://www.figma.com/api/mcp/asset/f659c5e7-266d-4d1e-8bfe-897a49756679"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       </div>
     </div>
   );
