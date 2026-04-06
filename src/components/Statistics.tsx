@@ -77,7 +77,7 @@ function SalaryCard() {
           <br />
           тем больше зарплата
         </p>
-        <p style={{ fontSize: f(13), lineHeight: "1.4", opacity: 0.7, fontStyle: "italic" }}>
+        <p style={{ fontSize: f(13), lineHeight: "1.4", opacity: 0.7 }}>
           Источник: Хабр Карьера
         </p>
       </div>
@@ -310,7 +310,7 @@ function RemoteCard() {
             color: "#1f1f1f",
           }}
         >
-          <span className="font-sans" style={{ color: "#f73", fontWeight: 500, fontStyle: "italic" }}>Больше половины</span>
+          <span style={{ color: "#f73" }}>Больше половины</span>
           <br />
           вакансий предлагают
           <br />
