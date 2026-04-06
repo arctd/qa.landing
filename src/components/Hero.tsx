@@ -1,4 +1,5 @@
 import { f } from "@/lib/fluid";
+import { HeroBackground } from "./HeroBackground";
 
 export function Hero() {
   return (
@@ -20,7 +21,7 @@ export function Hero() {
           padding: f(24),
         }}
       >
-        {/* Blue background — placeholder for video */}
+        {/* Blue background — fallback gradient + Unicorn Studio animation */}
         <div
           className="absolute inset-0"
           style={{
@@ -30,6 +31,7 @@ export function Hero() {
               "radial-gradient(ellipse at 50% 30%, #2a9df4 0%, #017beb 50%, #0168cc 100%)",
           }}
         />
+        <HeroBackground />
         {/* Inner shadow overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
