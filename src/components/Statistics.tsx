@@ -262,50 +262,61 @@ function RemoteCard() {
         borderRadius: f(32),
       }}
     >
-      {/* Donut chart — orange arc ~75%, gap on upper-left */}
+      {/* Donut chart — orange arc ~67%, starts at 12 o'clock clockwise, gap upper-left */}
       <svg
         viewBox="0 0 300 300"
         className="absolute inset-0 w-full h-full"
       >
-        {/* Background ring (light gray, full circle) */}
+        {/* Background ring (light beige, full circle) */}
         <circle
           cx="150"
           cy="150"
           r="120"
           fill="none"
-          stroke="#f5f0eb"
-          strokeWidth="18"
+          stroke="#f5ede6"
+          strokeWidth="16"
         />
-        {/* Orange accent arc ~75%, starting from top-left going clockwise */}
+        {/* Orange accent arc ~67% — starts at top, goes clockwise */}
         <circle
           cx="150"
           cy="150"
           r="120"
           fill="none"
-          stroke="#f73"
-          strokeWidth="18"
-          strokeDasharray="565 189"
-          strokeDashoffset="-95"
+          stroke="url(#orangeGradient)"
+          strokeWidth="16"
+          strokeDasharray="505 249"
+          strokeDashoffset="0"
           strokeLinecap="round"
           transform="rotate(-90 150 150)"
         />
+        <defs>
+          <linearGradient id="orangeGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#f73" />
+            <stop offset="100%" stopColor="#fdb88a" />
+          </linearGradient>
+        </defs>
       </svg>
 
-      {/* Center text */}
-      <p
-        className="absolute font-sans font-normal text-center"
-        style={{
-          fontSize: f(20),
-          lineHeight: "1.2",
-          color: "#1f1f1f",
-          left: f(32),
-          right: f(32),
-          top: f(114),
-        }}
+      {/* Center text — positioned inside the ring */}
+      <div
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ padding: f(55) }}
       >
-        <span style={{ color: "#f73" }}>Больше половины</span>
-        {" "}вакансий предлагают удалёнку
-      </p>
+        <p
+          className="font-sans font-normal text-center"
+          style={{
+            fontSize: f(20),
+            lineHeight: "1.2",
+            color: "#1f1f1f",
+          }}
+        >
+          <span className="font-sans" style={{ color: "#f73", fontWeight: 500, fontStyle: "italic" }}>Больше половины</span>
+          <br />
+          вакансий предлагают
+          <br />
+          удалёнку
+        </p>
+      </div>
     </div>
   );
 }
