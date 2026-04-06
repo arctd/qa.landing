@@ -137,6 +137,8 @@ export function Hero() {
                       "linear-gradient(270deg, #e8ebf2 64%, #6fb8fb 118%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
+                    paddingRight: f(8),
+                    overflow: "visible",
                   }}
                 >
                   4 часа
