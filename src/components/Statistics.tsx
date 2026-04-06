@@ -24,12 +24,12 @@ export function Statistics() {
       </div>
 
       {/* Cards layout */}
-      <div className="flex w-full" style={{ gap: f(20) }}>
+      <div className="flex items-start w-full" style={{ gap: f(20) }}>
         {/* Left: Salary card with gradient */}
         <SalaryCard />
 
         {/* Right: stacked cards */}
-        <div className="flex flex-col" style={{ gap: f(20), width: f(605) }}>
+        <div className="flex flex-col shrink-0" style={{ gap: f(20), width: f(605) }}>
           {/* Top row: Vacancies + Remote */}
           <div className="flex" style={{ gap: f(20) }}>
             <VacanciesCard />
@@ -46,8 +46,8 @@ export function Statistics() {
 function SalaryCard() {
   return (
     <div
-      className="flex-1 relative flex flex-col items-center justify-center overflow-hidden self-stretch"
-      style={{ borderRadius: f(211) }}
+      className="flex-1 relative flex flex-col items-center justify-center overflow-hidden"
+      style={{ borderRadius: f(211), height: f(488) }}
     >
       {/* Radial gradient background */}
       <div
