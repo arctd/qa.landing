@@ -262,13 +262,13 @@ function RemoteCard() {
         borderRadius: f(32),
       }}
     >
-      {/* Donut chart — two arcs, rotated -90deg to start from top */}
+      {/* Donut chart — orange arc starts at ~11 o'clock, goes clockwise ~75% */}
       <svg
         viewBox="0 0 300 300"
         className="absolute inset-0 w-full h-full"
-        style={{ transform: "rotate(-90deg)" }}
+        style={{ transform: "rotate(-120deg)" }}
       >
-        {/* Background ring (light gray ~35%) */}
+        {/* Background ring (light ~25%) */}
         <circle
           cx="150"
           cy="150"
@@ -276,8 +276,9 @@ function RemoteCard() {
           fill="none"
           stroke="#f5f0eb"
           strokeWidth="18"
+          strokeLinecap="round"
         />
-        {/* Orange accent ring (~65%) */}
+        {/* Orange accent ring (~75%) */}
         <circle
           cx="150"
           cy="150"
@@ -285,7 +286,7 @@ function RemoteCard() {
           fill="none"
           stroke="#f73"
           strokeWidth="18"
-          strokeDasharray="490 264"
+          strokeDasharray="565 189"
           strokeDashoffset="0"
           strokeLinecap="round"
         />
