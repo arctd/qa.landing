@@ -3,7 +3,7 @@ import { f } from "@/lib/fluid";
 export function Statistics() {
   return (
     <section
-      className="flex flex-col items-center justify-center overflow-hidden"
+      className="flex flex-col items-center justify-center overflow-hidden bg-white"
       style={{ padding: `${f(64)} ${f(120)}`, gap: f(50) }}
     >
       {/* Section heading */}
@@ -24,12 +24,12 @@ export function Statistics() {
       </div>
 
       {/* Cards layout */}
-      <div className="flex w-full" style={{ gap: f(20) }}>
+      <div className="flex items-start w-full" style={{ gap: f(20) }}>
         {/* Left: Salary card with gradient */}
         <SalaryCard />
 
         {/* Right: stacked cards */}
-        <div className="flex flex-col" style={{ gap: f(20), width: f(605) }}>
+        <div className="flex flex-col shrink-0" style={{ gap: f(20), width: f(605) }}>
           {/* Top row: Vacancies + Remote */}
           <div className="flex" style={{ gap: f(20) }}>
             <VacanciesCard />
@@ -46,11 +46,8 @@ export function Statistics() {
 function SalaryCard() {
   return (
     <div
-      className="flex-1 relative flex flex-col items-center justify-between overflow-hidden"
-      style={{
-        borderRadius: f(211),
-        minHeight: f(488),
-      }}
+      className="flex-1 relative flex flex-col items-center justify-center overflow-hidden"
+      style={{ borderRadius: f(211), height: f(488) }}
     >
       {/* Radial gradient background */}
       <div
@@ -72,7 +69,7 @@ function SalaryCard() {
 
       {/* Top text */}
       <div
-        className="relative flex flex-col items-center text-center text-white font-sans"
+        className="relative flex flex-col items-center text-center text-white font-sans w-full"
         style={{ padding: f(32), gap: f(12) }}
       >
         <p style={{ fontSize: f(20), lineHeight: "1.2" }}>
@@ -98,22 +95,28 @@ function SalaryCard() {
             padding: `${f(12)} ${f(20)}`,
             borderRadius: f(14),
             marginBottom: f(-7),
-            background:
-              "radial-gradient(ellipse at center bottom, rgba(255,255,255,0.26) 36%, rgba(255,255,255,0) 100%)",
           }}
         >
+          <div
+            className="absolute inset-0 rounded-[inherit]"
+            style={{
+              background:
+                "radial-gradient(ellipse at center bottom, rgba(255,255,255,0.26) 36%, rgba(255,255,255,0) 100%)",
+              opacity: 0.1,
+            }}
+          />
           <div
             className="absolute inset-0 pointer-events-none rounded-[inherit]"
             style={{ boxShadow: "inset 0px 0px 20px 0px rgba(255,255,255,0.15)" }}
           />
           <p
-            className="font-sans text-white text-center w-full"
+            className="relative font-sans text-white text-center w-full"
             style={{ fontSize: f(28), lineHeight: "1.05" }}
           >
             260 000
           </p>
           <p
-            className="font-sans text-white text-center w-full"
+            className="relative font-sans text-white text-center w-full"
             style={{ fontSize: f(14), lineHeight: "1.4", opacity: 0.7 }}
           >
             Senior
@@ -125,7 +128,10 @@ function SalaryCard() {
           className="flex flex-col items-center justify-center"
           style={{
             width: f(160),
-            padding: `${f(18)} ${f(15)} ${f(11)}`,
+            paddingTop: f(18),
+            paddingBottom: f(11),
+            paddingLeft: f(15),
+            paddingRight: f(15),
             borderRadius: f(11),
             marginBottom: f(-7),
             background:
@@ -151,7 +157,10 @@ function SalaryCard() {
           className="flex flex-col items-center justify-center"
           style={{
             width: f(122),
-            padding: `${f(18)} ${f(12)} ${f(10)}`,
+            paddingTop: f(18),
+            paddingBottom: f(10),
+            paddingLeft: f(12),
+            paddingRight: f(12),
             borderRadius: f(8),
             marginBottom: f(-7),
             background:
@@ -253,48 +262,59 @@ function RemoteCard() {
         borderRadius: f(32),
       }}
     >
-      {/* Donut chart background */}
+      {/* Donut chart — orange arc ~67%, starts at 12 o'clock clockwise, gap upper-left */}
       <svg
         viewBox="0 0 300 300"
         className="absolute inset-0 w-full h-full"
       >
-        {/* Background ring */}
+        {/* Background ring (light beige, full circle) */}
         <circle
           cx="150"
           cy="150"
-          r="130"
+          r="120"
           fill="none"
-          stroke="#f5f5f8"
-          strokeWidth="38"
+          stroke="#f5ede6"
+          strokeWidth="16"
         />
-        {/* Accent ring ~60% */}
+        {/* Orange accent arc ~67% — starts at top, goes clockwise */}
         <circle
           cx="150"
           cy="150"
-          r="130"
+          r="120"
           fill="none"
-          stroke="#f73"
-          strokeWidth="38"
-          strokeDasharray="490 327"
+          stroke="url(#orangeGradient)"
+          strokeWidth="16"
+          strokeDasharray="505 249"
           strokeDashoffset="0"
-          transform="rotate(-90 150 150)"
           strokeLinecap="round"
+          transform="rotate(-90 150 150)"
         />
+        <defs>
+          <linearGradient id="orangeGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#f73" />
+            <stop offset="100%" stopColor="#fdb88a" />
+          </linearGradient>
+        </defs>
       </svg>
 
-      {/* Center text */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* Center text — positioned inside the ring */}
+      <div
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ padding: f(55) }}
+      >
         <p
           className="font-sans font-normal text-center"
           style={{
             fontSize: f(20),
             lineHeight: "1.2",
             color: "#1f1f1f",
-            padding: `0 ${f(32)}`,
           }}
         >
           <span style={{ color: "#f73" }}>Больше половины</span>
-          {" "}вакансий предлагают удалёнку
+          <br />
+          вакансий предлагают
+          <br />
+          удалёнку
         </p>
       </div>
     </div>
@@ -304,16 +324,17 @@ function RemoteCard() {
 function NoExperienceCard() {
   return (
     <div
-      className="flex items-center overflow-hidden w-full"
+      className="flex items-start overflow-hidden w-full"
       style={{
         height: f(168),
         borderRadius: f(32),
         backgroundColor: "#f6f7f9",
       }}
     >
-      <div className="flex-1 flex items-center" style={{ padding: f(48) }}>
+      {/* Text */}
+      <div className="flex flex-1 h-full items-center" style={{ padding: f(48) }}>
         <p
-          className="font-sans font-normal"
+          className="font-sans font-normal flex-1"
           style={{ fontSize: f(20), lineHeight: "1.2", color: "#1f1f1f" }}
         >
           Для старта карьеры
@@ -321,17 +342,18 @@ function NoExperienceCard() {
           не требуется техническое образование или опыт в IT
         </p>
       </div>
-      {/* Right decoration placeholder */}
+      {/* Right image from Figma */}
       <div
-        className="shrink-0"
-        style={{
-          width: f(240),
-          height: f(168),
-          background:
-            "linear-gradient(180deg, white 69%, #f6f7f9 97%)",
-          borderRadius: f(17),
-        }}
-      />
+        className="shrink-0 relative"
+        style={{ width: f(240), height: f(168) }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          alt=""
+          src="https://www.figma.com/api/mcp/asset/f659c5e7-266d-4d1e-8bfe-897a49756679"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
     </div>
   );
 }
